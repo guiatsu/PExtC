@@ -15,5 +15,6 @@ MonoBehaviour:
   _name: "Peitoral de A\xE7o"
   description: + 10 strength
   type: chest
+  value: 150
   isEquiped: 0
   icon: {fileID: 21300000, guid: d659f7396cd57754eba78763cf986c51, type: 3}

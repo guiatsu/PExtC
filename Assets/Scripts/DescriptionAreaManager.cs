@@ -7,12 +7,19 @@ public class DescriptionAreaManager : MonoBehaviour
 {
     [SerializeField] public TMP_Text nameText;
     [SerializeField] public TMP_Text descriptionText;
-
+    [SerializeField] public bool isShop = false;
     // Start is called before the first frame update
     void Start()
     {
-        MouseSensitive.MouseOn += UpdateDescription;
-        MouseSensitive.MouseOff += ResetInformaton;
+        if(!isShop){
+
+            InventoryMouseSensitive.MouseOn += UpdateDescription;
+            InventoryMouseSensitive.MouseOff += ResetInformaton;
+        }
+        else{
+            ShopMouseSensitive.MouseOn += UpdateDescription;
+            ShopMouseSensitive.MouseOff += ResetInformaton;
+        }
         nameText.text = "";
         descriptionText.text = "";
         
@@ -20,8 +27,15 @@ public class DescriptionAreaManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        MouseSensitive.MouseOn -= UpdateDescription;
-        MouseSensitive.MouseOff -= ResetInformaton;
+        if(!isShop){
+
+            InventoryMouseSensitive.MouseOn -= UpdateDescription;
+            InventoryMouseSensitive.MouseOff -= ResetInformaton;
+        }
+        else{
+            ShopMouseSensitive.MouseOn -= UpdateDescription;
+            ShopMouseSensitive.MouseOff -= ResetInformaton;
+        }
     }
 
     // Update is called once per frame

@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Linq;
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private Item[] arrayInventory;
+    [SerializeField] public Item[] arrayInventory;
     
     public List<Item> _Inventory {get; private set;}
 
@@ -23,6 +23,9 @@ public class Inventory : MonoBehaviour
     void Update()
     {
         
+    }
+    public void Initialize(Item[] items){
+        _Inventory = items.OrderBy(x => x.name).ToList();
     }
     public void AddItem(Item item){
         if(item != null)

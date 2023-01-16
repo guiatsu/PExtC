@@ -15,5 +15,6 @@ MonoBehaviour:
   _name: "Machado da F\xFAria"
   description: "+ 22 ATK \n+11 M-ATK\n+100 vitality\n+ 15 strength\n- 5 dexterity"
   type: weapon
+  value: 295
   isEquiped: 0
   icon: {fileID: 21300000, guid: 719c2201c2f5f6c4aafffaeb5abdf5f9, type: 3}

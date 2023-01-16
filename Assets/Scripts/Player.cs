@@ -135,6 +135,10 @@ public class Player : MonoBehaviour
             }
         }
     }
-
+    public void AddItem(Item item){
+        GameObject _go = Resources.Load("prefabs/InventoryViewer") as GameObject;
+        ItemReference itemRef = (Instantiate(_go, inventorySlotsParent.transform) as GameObject).GetComponent<ItemReference>();
+        itemRef.SetValues(item);
+    }
 
 }

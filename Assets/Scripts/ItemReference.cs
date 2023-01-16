@@ -10,6 +10,7 @@ public class ItemReference : MonoBehaviour
     [SerializeField] public bool isEquiped;
     [SerializeField] public TMP_Text equipedText;
     [SerializeField] public string type;
+    [SerializeField] public float value;
     [SerializeField] public Dictionary<string, float> stats;
     public Item _Item {get; private set;}
 
@@ -22,6 +23,7 @@ public class ItemReference : MonoBehaviour
         Icon.sprite = item.icon;
         isEquiped = item.isEquiped;
         equipedText.text = item.isEquiped ? "E" : "";
+        value = item.value;
         type = item.type;
         stats = item.stats;
     }

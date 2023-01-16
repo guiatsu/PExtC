@@ -10,6 +10,8 @@ public class Item : ScriptableObject
     [TextArea(3, 10)]
     public string description;
     public string type;
+
+    public float value;
     //list all stats used in player
     public Dictionary<string, float> stats = new Dictionary<string, float>{
         {"strength", 0},
