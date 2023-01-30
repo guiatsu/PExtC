@@ -7,6 +7,7 @@ using System.Linq;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private float sprintMultiplier = 2.0f;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator animator;
     [SerializeField] private TMP_Text headText;
@@ -65,8 +66,12 @@ public class Player : MonoBehaviour
             Move();
     }
     private void Move(){
-        rb.MovePosition(rb.position + movement.normalized*speed*Time.fixedDeltaTime);
-        // rb.velocity = new Vector2(horizontal, vertical).normalized*speed;
+        float effectiveSpeed = speed;
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            effectiveSpeed *= sprintMultiplier;
+        }
+        rb.MovePosition(rb.position + movement.normalized * effectiveSpeed * Time.fixedDeltaTime);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
